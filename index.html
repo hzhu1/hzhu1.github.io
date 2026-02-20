@@ -26,11 +26,23 @@
       }
       h1 { font-size: 30px; line-height: 135%;}
       h1_name { font-size: 45px; }
-      h2 { font-size: 24px; line-height: 135%;}
+      h2 {
+        font-size: 24px;
+        line-height: 135%;
+        margin-top: 8px;
+        margin-bottom: 14px;
+        padding: 7px 12px;
+        border-left: 6px solid #2B6CB0;
+        background: #F2F6FF;
+        border-radius: 6px;
+        font-weight: 800;
+        display: block;
+        max-width: 100%;
+      }
       h3 { font-size: 20px; line-height: 135%;}
       h4 { font-size: 16px; }
       h5 { font-size: 15px; }
-      h6 { font-size: 13px; }
+      h6 { font-size: 13px; position: sticky;}
 
       hr {
         border-top: 2px solid #C2C2C2;
@@ -51,7 +63,11 @@
         padding-left: 1.5em;
         padding-bottom: 0.5em;
       }
-      
+      #publications li > span {
+        font-weight: 800;
+        color: #1a365d;
+        letter-spacing: 0.2px;
+      }
       .target-fix {
         position: relative;
         top: 50px;
@@ -65,6 +81,50 @@
       */
       #home {padding-top:60px;}
       #experience {padding-bottom:45px}
+      #home .home-header {
+        margin-top: 10px;
+      }
+
+      #home .home-photo {
+        max-width: 246px;
+        width: 100%;
+        height: auto;
+      }
+
+      #home .home-meta {
+        font-size: 18px;
+        line-height: 1.6;
+        color: #555;
+      }
+
+      #home .home-meta .home-secondary {
+        font-size: 15px;
+        color: #555;
+        margin-top: 2px;
+      }
+
+      #home .home-meta a {
+        word-break: break-word;
+        color: #2b6cb0;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(43,108,176,0.25);
+      }
+
+      #home .home-meta a:hover,
+      #home .home-meta a:focus {
+        color: #1e4e8c;
+        border-bottom-color: rgba(30,78,140,0.45);
+      }
+
+      @media (max-width: 768px) {
+        #home .home-text {
+          text-align: center;
+          margin-top: 10px;
+        }
+        #home .home-photo {
+          margin: 0 auto 10px auto;
+        }
+      }
     </style>
     
   </head>
@@ -76,39 +136,45 @@
     
     <div class="container">
       <section id="home">
-        <div class="col-md-3">
-          <img src="./HangZhu_files/hangzhu.jpg" alt="Hang Zhu" class="img-rounded"
-                height="246px"/>
+        <div class="row home-header">
+          <div class="col-md-3 col-sm-4 col-xs-12">
+            <img
+              src="./HangZhu_files/hangzhu.jpg"
+              alt="Hang Zhu"
+              class="img-responsive img-rounded home-photo"
+            />
+          </div>
+      
+          <div class="col-md-9 col-sm-8 col-xs-12 home-text">
+            <h1 class="home-name">Hang Zhu</h1>
+      
+            <div class="home-meta">
+              <div>Research Scientist @ ByteDance Seed</div>
+              <div class="home-secondary">
+                <a href="https://scholar.google.com/citations?user=sT22t1gAAAAJ&hl=en&oi=ao">Google Scholar</a>
+              </div>
+              <div class="home-secondary">E-mail: hangzhu16 [AT] gmail [DOT] com</div>
+            </div>
+          </div>
         </div>
-        
-        <p class="styleT">
-          <br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;<h1_name> Hang Zhu</h1_name><br><br>
-          <vi>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp; Research Scientist <br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp; ByteDance@Seattle <br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp; E-mail:
-              <vi>hangzhu16 [AT] gmail [DOT] com </vi>
-          </a></vi>
-         </p>
+      
         <hr>
       </section>
 
       <section id="bio">
-        <h2>
+        <h2 class="sub-title">
           Bio
         </h2>
         <p>
-        I am a Research Scientist in the machine learning system group at ByteDance@Seattle.
+        I work on LLM infrastructure at ByteDance Seed, building and optimizing training frameworks for large-scale pre-training and post-training.
         I obtained my PhD degree from Johns Hopkins University in 2022, 
         advised by <a href="https://xinjin.github.io/">Prof. Xin Jin</a>. 
         I received my bachelor's degree from Tsinghua University, China. 
-        My current focus is on building large-scale training systems for large language models.
         </p>
         <hr>
       </section>
       <section id="education">
-        <h2>
+        <h2 class="sub-title">
           Education
         </h2>
         <li>Ph. D. in Department of Computer Science, Johns Hopkins University, 2017 - 2022</li>
@@ -116,17 +182,30 @@
         <hr>
       </section> 
       <section id="publications">
-        <h2>
-          Publications
+        <h2 class="sub-title">
+          Selected Publications
         </h2>
+          <h3>AI + System</h3>
+          <li>
+            <span style="font-size:18px;">It Takes Two to Entangle</span><br/>
+            Zhanghan Wang*, Ding Ding*, <span style="font-weight:bold;">Hang Zhu</span>, Habin Lin, Aurojit Panda<br/>
+            <span style="font-weight:bold;">ASPLOS</span>, 2026<br/>
+            [<a href="">PDF</a>]
+            [<a href="https://github.com/ByteDance-Seed/entangle">Code</a>]
+          </li>
+          <li>
+            <span style="font-size:18px;">Seed1.5-Thinking: Advancing Superb Reasoning Models with Reinforcement Learning</span><br/>
+            ByteDance Seed Team<br/>
+            [<a href="https://arxiv.org/abs/2504.13914">Arxiv 2025</a>]
+          </li>
           <li>
             <span style="font-size:18px;">VAPO: Efficient and Reliable Reinforcement Learning for Advanced Reasoning Tasks</span><br/>
-            Yufeng Yuan, Qiying Yu, Xiaochen Zuo, Ruofei Zhu, Wenyuan Xu, Jiaze Chen, Chengyi Wang, TianTian Fan, Zhengyin Du, Xiangpeng Wei, Gaohong Liu, Juncai Liu, Lingjun Liu, Haibin Lin, Zhiqi Lin, Bole Ma, Chi Zhang, Mofan Zhang, Wang Zhang
+            Yufeng Yuan, Qiying Yu, Xiaochen Zuo, Ruofei Zhu, Wenyuan Xu, Jiaze Chen, Chengyi Wang, TianTian Fan, Zhengyin Du, Xiangpeng Wei, Gaohong Liu, Juncai Liu, Lingjun Liu, Haibin Lin, Zhiqi Lin, Bole Ma, Chi Zhang, Mofan Zhang, Wang Zhang,
             <span style="font-weight:bold;">Hang Zhu</span>, Ru Zhang, Xin Liu, Mingxuan Wang, Yonghui Wu, Lin Yan<br/>
             [<a href="https://arxiv.org/pdf/2504.05118?">Arxiv 2025</a>]
           </li>
           <li>
-            <span style="font-size:18px;">Dapo: An open-source llm reinforcement learning system at scale</span><br/>
+            <span style="font-size:18px;">DAPO: An Open-Source LLM Reinforcement Learning System at Scale</span><br/>
             Qiying Yu, Zheng Zhang, Ruofei Zhu, Yufeng Yuan, Xiaochen Zuo, Yu Yue, Tiantian Fan, Gaohong Liu, Lingjun Liu, Xin Liu, Haibin Lin, Zhiqi Lin, Bole Ma, Guangming Sheng, Yuxuan Tong, Chi Zhang, Mofan Zhang, Wang Zhang, 
             <span style="font-weight:bold;">Hang Zhu</span>, Jinhua Zhu, Jiaze Chen, Jiangjie Chen, Chengyi Wang, Hongli Yu, Weinan Dai, Yuxuan Song, Xiangpeng Wei, Hao Zhou, Jingjing Liu, Wei-Ying Ma, Ya-Qin Zhang, Lin Yan, Mu Qiao, Yonghui Wu, Mingxuan Wang<br/>
             [<a href="https://arxiv.org/pdf/2503.14476">Arxiv 2025</a>]
@@ -138,6 +217,24 @@
             <span style="font-weight:bold;">NSDI</span>, 2025<br/>
             [<a href="">PDF</a>]
           </li>
+          <li>
+            <span style="font-size:18px;">Network Planning with Deep Reinforcement Learning</span><br/>
+            <span style="font-weight:bold;">Hang Zhu</span>, Varun Gupta, Satyajeet Singh Ahuja, Yuandong Tian, Ying Zhang, Xin Jin<br/>
+            <span style="font-weight:bold;">SIGCOMM</span>, 2021<br/>
+            [<a href="files/SIGCOMM21_NeuroPlan.pdf">PDF</a>]
+            [<a href="files/SIGCOMM21_NeuroPlan_slides_long.pptx">Slides(long)</a>]
+            [<a href="files/SIGCOMM21_NeuroPlan_slides_short.pptx">Slides(short)</a>]
+            [<a href="https://github.com/netx-repo/neuroplan">Code</a>]
+          </li>
+          <li>
+            <span style="font-size:18px;">Neural Packet Classification</span><br/>
+            Eric Liang, <span style="font-weight:bold;">Hang Zhu</span>, Xin Jin, Ion Stoica<br/>
+            <span style="font-weight:bold;">SIGCOMM</span>, 2019<br/>
+            [<a href="files/SIGCOMM19_NeuroCuts.pdf">PDF</a>]
+            [<a href="files/SIGCOMM19_NeuroCuts_slides.pptx">Slides</a>]
+            [<a href="https://github.com/neurocuts/neurocuts">Code</a>]
+          </li>
+          <h3>Core Distributed Systems and Networking</h3>
           <li>
             <span style="font-size:18px;">Klotski: Efficient and Safe Network Migration of Large Production Datacenters</span><br/>
             Yihao Zhao*, Xiaoxiang Zhang*, <span style="font-weight:bold;">Hang Zhu</span>, Ying Zhang, Zhaodong Wang, Yuandong Tian, Alex Nikulkov, Joao Ferreira, Xuanzhe Liu, Xin Jin<br/>
@@ -152,16 +249,6 @@
             [<a href="files/NSDI22_NetVRM_slides.pptx">Slides</a>]
           </li>
           <li>
-            <span style="font-size:18px;">Network Planning with Deep Reinforcement Learning</span><br/>
-            <span style="font-weight:bold;">Hang Zhu</span>, Varun Gupta, Satyajeet Singh Ahuja, Yuandong Tian, Ying Zhang, Xin Jin<br/>
-            <span style="font-weight:bold;">SIGCOMM</span>, 2021<br/>
-            [<a href="files/SIGCOMM21_NeuroPlan.pdf">PDF</a>]
-            [<a href="files/SIGCOMM21_NeuroPlan_slides_long.pptx">Slides(long)</a>]
-            [<a href="files/SIGCOMM21_NeuroPlan_slides_short.pptx">Slides(short)</a>]
-            [<a href="https://github.com/netx-repo/neuroplan">Code</a>]
-          </li>
-
-          <li>
             <span style="font-size:18px;">Runtime Recovery of Web Applications under Zero-Day ReDoS Attacks</span><br/>
             Zhihao Bai, Ke Wang, <span style="font-weight:bold;">Hang Zhu</span>, Yinzhi Cao, Xin Jin<br/>
             <span style="font-weight:bold;">S&P</span>, 2021<br/>
@@ -170,7 +257,6 @@
             [<a href="files/SP21_RegexNet_slides_short.pptx">Slides(short)</a>]
             [<a href="https://github.com/netx-repo/RegexNet">Code</a>]
           </li>
-
           <li>
             <span style="font-size:18px;">RackSched: A Microsecond-Scale Scheduler for Rack-Scale Computers</span><br/>
             <span style="font-weight:bold;">Hang Zhu</span>, Kostis Kaffes, Zixu Chen, Zhenming Liu, Christos Kozyrakis, Ion Stoica, Xin Jin<br/>
@@ -188,7 +274,6 @@
             [<a href="files/HotCloud20_Multitenancy.pdf">PDF</a>]
             [<a href="files/HotCloud20_Multitenancy_slides.pdf">Slides</a>]
           </li>
-
           <li>
             <span style="font-size:18px;">Harmonia: Near-Linear Scalability for Replicated Storage with In-Network Conflict Detection</span><br/>
             <span style="font-weight:bold;">Hang Zhu</span>, Zhihao Bai, Jialin Li, Ellis Michael, Dan R. K. Ports, Ion Stoica, Xin Jin<br/>
@@ -196,40 +281,25 @@
             [<a href="files/VLDB19_Harmonia.pdf">PDF</a>]
             [<a href="files/VLDB19_Harmonia_slides.pptx">Slides</a>]
           </li>
-
-          <li>
-            <span style="font-size:18px;">Neural Packet Classification</span><br/>
-            Eric Liang, <span style="font-weight:bold;">Hang Zhu</span>, Xin Jin, Ion Stoica<br/>
-            <span style="font-weight:bold;">SIGCOMM</span>, 2019<br/>
-            [<a href="files/SIGCOMM19_NeuroCuts.pdf">PDF</a>]
-            [<a href="files/SIGCOMM19_NeuroCuts_slides.pptx">Slides</a>]
-            [<a href="https://github.com/neurocuts/neurocuts">Code</a>]
-          </li>
-
-          <li>
-            <span style="font-size:18px;">BitCuts: A Fast Packet Classification Algorithm Using Bit-Level Cutting</span><br/>
-            Zhi Liu, Shijie Sun, <span style="font-weight:bold;">Hang Zhu</span>, Jiaqi Gao, Jun Li​<br/>
-            <span style="font-weight:bold;">Computer Communications</span>, 2017<br/>
-          </li>
           <hr>
       </section>
 
       <section id="services">
-        <h2>
-          Services
+        <h2 class="sub-title">
+          Selected Academic Services
         </h2>
-        <li>Technical program committee: NSDI'25, SIGCOMM'23 Posters/Demos<br/>
+        <li>Technical program committee: SIGCOMM'26, NSDI'25, PACMI@SOSP'25<br/>
         </li>
-        <li>Artifact evaluation program committee: MLSys'23<br/>
+        <!-- <li>Artifact evaluation program committee: MLSys'23<br/>
         </li>
         <li>Conference reviewer: INFOCOM'22, INFOCOM'21, INFOCOM'20<br/>
         </li>
-        <li>Journal reviewer: ToN'23, ToCC'21, ToN'21<br/>
+        <li>Journal reviewer: ToN'23, ToCC'21, ToN'21<br/> -->
         </li>
         <hr>
       </section>
 
-      <section id="teaching">
+      <!-- <section id="teaching">
         <h2>
           Teaching
         </h2>
@@ -246,7 +316,7 @@
             EN.601.414/614 Computer Networks</a><br>
         </li>
         <hr>
-      </section>
+      </section> -->
     </div>
     
     <script src="./HangZhu_files/jquery.min.js"></script>
